@@ -1,0 +1,13 @@
+.error{
+  font-size: x-small;
+  padding: 6px;
+  color: red;
+}
+#AccountExist{
+  text-decoration: none;
+  font-size:small;
+}
+#AccountExist:hover{
+  text-decoration:underline;
+  color: blueviolet;
+}

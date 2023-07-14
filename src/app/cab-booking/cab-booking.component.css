@@ -1,0 +1,18 @@
+#fromToSelection,
+#driversSection {
+  border: 1px solid rgb(183, 183, 183);
+  justify-content: space-between;
+  
+  border-radius: 5px;
+}
+
+.roundedImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.setBorderRadius{
+  border-radius: 5px;
+  height: max-content;
+}

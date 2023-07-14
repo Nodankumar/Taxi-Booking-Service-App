@@ -1,0 +1,77 @@
+<div class="container text-center">
+  <h2 class="p-4">Cab Booking</h2>
+  <!-- select from and to destinations -->
+  <div id="fromToSelection">
+    <div class="row p-2 text-align-center ms-1 me-1">
+      <div class="col-12 col-sm-6 text-start">
+        <label for="from" style="display: block; text-align: start;">From</label>
+        <select name="" id="from" class="form-select">
+          <option value="">Delhi</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-6 text-end">
+        <label for="to" style="display: block; text-align: start;">To</label>
+        <select name="" id="to" class="form-select">
+          <option value="">Gurugram</option>
+        </select>
+      </div>
+    </div>
+  </div>
+ <!-- drivers details -->
+<div id="driversSection" class="mt-2">
+  <ng-container *ngFor="let do of driversAvailabele; let i = index" class="card">
+    <div class="border m-2 setBorderRadius">
+      <div class="row align-items-center">
+        <div class="col-3 col-sm-3 d-none d-sm-block">
+          <img [src]="do.imgAddress" alt="driver1.Img" [class.roundedImg]="cicularImages">
+        </div>
+        <div class="col-8 col-sm-6 p-4 d-flex align-items-start text-start">
+          <div>
+            <h2 class="mb-0">{{ do['driverName'] }}</h2>
+            <p class="mb-0">Vehicle Model: {{ do['vehicleModel'] }}</p>
+            <p class="mb-0"><span>Arrival at: {{ do['arrivalTime'] }}</span>&nbsp;<span>Duration: {{ do['duration']
+                }}</span></p>
+            <p class="mb-0">Rating: {{ do['driverRating'] }}</p>
+            <p class="mb-0">Fare: {{ do['fare'] }}</p>
+          </div>
+        </div>
+        <div class="col-3 col-sm-3 text-center d-flex align-items-center justify-content-end pe-4">
+          <button class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#driverDetails-' + i">Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" [id]="'driverDetails-' + i" tabindex="-1" [attr.aria-labelledby]="'driverDetailsLabel-' + i" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" [id]="'driverDetailsLabel-' + i">Driver Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row justify-content-center align-items-center">
+            <div class="col-4 text-start d-none d-sm-block">
+              <img [src]="do.imgAddress" alt="driver1.Img" [class.roundedImg]="cicularImages">
+            </div>
+            <div class="col-12 col-sm-8 text-start">
+              <h2 class="mb-0">{{ do['driverName'] }}</h2>
+              <p class="mb-0">Vehicle Model: {{ do['vehicleModel'] }}</p>
+              <p class="mb-0"><span>Arrival at: {{ do['arrivalTime'] }}</span>&nbsp;<span>Duration: {{ do['duration']
+                  }}</span></p>
+              <p class="mb-0">Rating: {{ do['driverRating'] }}</p>
+              <p class="mb-0">Fare: {{ do['fare'] }}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="navigateToBookingSuccess(do)">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
+
+</div>

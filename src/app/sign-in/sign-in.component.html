@@ -1,0 +1,46 @@
+<div class="container text-center shadow mt-5 justify-content-center" style="width: 80%;">
+  <form action="" [formGroup]="signin" class="text-center justify-content-center p-3">
+    <div class="p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-person-circle"
+        viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path fill-rule="evenodd"
+          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+      </svg>
+      <h1>Sign In</h1>
+    </div>
+    <div class="text-center">
+      <div class="row p-2">
+        <div class="col-8 mx-auto">
+          <label for="username" style="display: block; text-align: left;">Username<sup
+              style="color: red;">*</sup></label>
+          <input type="text" id="username" formControlName="Username" class="form-control">
+          <div style="text-align: left;" [class]="errorMsgClass"
+            *ngIf="signin.get('Username')?.touched && signin.get('Username')?.hasError('required')">username required*
+          </div>
+          <div style="text-align: left;" [class]="errorMsgClass"
+            *ngIf="signin.get('Username')?.touched && signin.get('Username')?.hasError('minlength')">atleast 6 charcters
+            needed*</div>
+        </div>
+      </div>
+      <div class="row p-2">
+        <div class="col-8 mx-auto">
+          <label for="password" style="display: block; text-align: left;">Password<sup
+              style="color: red;">*</sup></label>
+          <input type="text" id="password" formControlName="Password" class="form-control">
+          <div style="text-align: left;" [class]="errorMsgClass"
+            *ngIf="signin.get('Password')?.touched && signin.get('Password')?.hasError('required')">password required*
+          </div>
+          <div style="text-align: left;" [class]="errorMsgClass"
+            *ngIf="signin.get('Password')?.touched && signin.get('Password')?.hasError('minlength')">atleast 8 charcters
+            needed*</div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-3">
+      <div class="col-8 mx-auto">
+        <a class="btn btn-primary" routerLink="">Sign In</a>
+      </div>
+    </div>
+  </form>
+</div>

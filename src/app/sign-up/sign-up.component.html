@@ -1,0 +1,61 @@
+<div class="container text-center shadow mt-5 justify-content-center" style="width: 80%;">
+  <form action="" [formGroup]="signup" class="text-center justify-content-center p-3">
+    <div class="p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-person-circle"
+        viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path fill-rule="evenodd"
+          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+      </svg>
+      <h1>Register</h1>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="name" style="display: block; text-align: left;">Name<sup style="color: red;">*</sup></label>
+        <input type="text" id="name" formControlName="Name" class="form-control">
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Name')?.touched && signup.get('Name')?.hasError('required')">Name required*</div>
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Name')?.touched && signup.get('Name')?.hasError('minlength')">atleast 3 charcters needed*</div>
+      </div>
+      <div class="col-6">
+        <label for="age" style="display: block; text-align: left;">Age</label>
+        <input type="text" id="age" formControlName="Age" class="form-control">
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="username" style="display: block; text-align: left;">Username<sup style="color: red;">*</sup></label>
+        <input type="text" id="username" formControlName="Username" class="form-control">
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Username')?.touched && signup.get('Username')?.hasError('required')">username required*</div>
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Username')?.touched && signup.get('Username')?.hasError('minlength')">atleast 6 charcters needed*</div>
+      </div>
+      <div class="col-6">
+        <label for="password" style="display: block; text-align: left;">Password<sup style="color: red;">*</sup></label>
+        <input type="text" id="password" formControlName="Password" class="form-control">
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Password')?.touched && signup.get('Password')?.hasError('required')">password required*</div>
+        <div style="text-align: left;" [class]="errorMsgClass" *ngIf="signup.get('Password')?.touched && signup.get('Password')?.hasError('minlength')">atleast 8 charcters needed*</div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-12">
+        <label for="address" style="display: block; text-align: left;">Address</label>
+        <input type="text" id="address" formControlName="Address" class="form-control">
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-8">
+        <label for="referralCode" style="display: block; text-align: left;">Referral Code (optional)</label>
+        <input type="text" id="referralCode" formControlName="ReferralCode" class="form-control">
+      </div>
+      <div class="col-4">
+        <label for="cabRider" style="display: block; text-align: left;">Cab Rider</label>
+        <div class="form-check">
+          <input type="checkbox" id="cabRider" formControlName="cabDriver" class="form-check-input">
+        </div>
+      </div>
+    </div>
+    <div class="row p-3">
+     <a  class="btn btn-primary" routerLink="/sign-in">Register</a>
+     <a routerLink="" style="display: block;text-align: right;" id="AccountExist" routerLink="/sign-in">Already have an account?</a>
+    </div>
+  </form>
+</div>
